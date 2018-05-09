@@ -1,0 +1,83 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/basic.xhtml">
+    <ui:define name="head">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <title>#{msg.appTitle}</title>
+        <style>
+            html {
+                font-family: 'RobotoDraft', sans-serif;
+                color:#434343;
+            }
+            .header {
+                font-size: 1.1em;
+                font-weight: bold;
+                border-bottom: 1px solid #ccc;
+            }
+        </style>
+    </ui:define>
+    <ui:define name="content">
+        <div id="msgDiv" style="width: 600px; margin: 55px auto;text-align: center; color: #888;font-size: 1.4em;display: none;">
+            #{msg.connectingMsg}
+        </div>
+
+        <div id="mainDiv" style="margin: 0 auto; width: 600px;display: none;">
+            <div class="header" style="margin: 5px;color: cornflowerblue;font-size: 1.2em; padding: 5px;">
+                <div title="#{applicationCode}" style="display: inline-block;">#{pageBean.applicationCodeMsg(applicationCode)}</div>
+                <c:if test="#{lgtGuid != null}">
+                    <div style="margin: 0 0 0 30px;display: inline-block;">
+                        <button onclick="checkLgtGuid('#{lgtGuid}')">#{msg.operationDetailsLbl}</button>
+                    </div>
+                </c:if>
+            </div>
+            <c:if test="#{message != null}">
+                <div style="margin: 5px;display: inline-block;color: #888;">#{message}</div>
+            </c:if>
+            <c:if test="#{operationStateMsg != null}">
+                <div class="header" style="margin: 10px 0 0 0;">
+                    <div style="margin: 5px;display: inline-block;">
+                        #{msg.operationStateLbl}:
+                    </div>
+                    <div style="margin: 5px;display: inline-block;color: #888;">#{operationStateMsg}</div>
+                </div>
+            </c:if>
+            <c:if test="#{controlServiceNotificationStateMsg != null}">
+                <div class="header" style="margin: 10px 0 0 0;">
+                    <div style="margin: 5px;display: inline-block;">
+                        #{msg.controlServiceNotificationStateLbl}:
+                    </div>
+                    <div style="margin: 5px;display: inline-block;color: #888;">#{controlServiceNotificationStateMsg}</div>
+                </div>
+            </c:if>
+
+            <form name="mainForm" id="xmlOutputForm" method="post" action='#{backUrl}'>
+                <input type='hidden' id='xml' name="xml" value='#{outputXML}'/>
+            </form>
+
+            <div style="display: none;">
+                operationResponse - This string is to get results in load test:
+                @@@@#{lgtGuid}@@@@#{applicationCode}@@@@#{message}@@@@#{operationID}@@@@</div>
+        </div>
+
+        <script>
+            var submitForm = "#{(backUrl == null || backUrl.trim().isEmpty()) ? '': backUrl}"
+            console.log("operationID: #{operationID} - applicationCode: #{applicationCode}")
+            //<![CDATA[
+                if(submitForm && submitForm !== "@@@SIMULATION_BACK_URL@@@") {
+                    document.getElementById("msgDiv").style.display = "block";
+                    //document.getElementById("xmlOutputForm").submit();
+                } else {
+                    document.getElementById("mainDiv").style.display = "block";
+                }
+
+                function checkLgtGuid(lgtGuid) {
+                    window.open("#{request.contextPath}/api/currencyOperationType/lgtGuid/" + lgtGuid, '_blank');
+                }
+            //]]>
+        </script>
+    </ui:define>
+</ui:composition>
