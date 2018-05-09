@@ -46,7 +46,7 @@ the TSA.  It is expressed as UTC time (Coordinated Universal Time).
     POST - http://$SERVER_DOMAIN/timestamp-server/api/timestamp
 
 
-#### RFC 3161 timestamps
+#### Discrete timestamps
 
     POST - http://$SERVER_DOMAIN/timestamp-server/api/timestamp/discrete
 
