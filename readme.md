@@ -20,12 +20,13 @@ To enable application filters change what follows to the standalone / domain  se
         <servlet-container name="default" allow-non-standard-wrappers="true">
 
 #### Build and Deploy on Wildfly
-1. Make sure you have  Wildfly server started.
-2. Make sure theres configured a _datasource_ with the name:
+1. Run the script **setup-database-postgres.sh** in order to create the database (it must be in the same folder that **timestamp-server-postgres.sql**)
+2. Make sure you have  Wildfly server started.
+3. Make sure theres configured a _datasource_ with the name:
 
     _java:jboss/datasources/timestamp-server_
         
-3. Use this command to build and deploy the archive:
+4. Use this command to build and deploy the archive:
 
             mvn clean package wildfly:deploy
       
@@ -33,6 +34,8 @@ To enable application filters change what follows to the standalone / domain  se
 Application will store log files in directory:
     
     /var/log/timestamp-server
+    
+You must setup the folder with the appropiated user privileges 
 
 #### Certificates
 Certificate dates are expressed as UTC time (Coordinated Universal Time) 
