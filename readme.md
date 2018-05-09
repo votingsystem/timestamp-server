@@ -37,10 +37,23 @@ Application will store log files in directory:
     
 You must setup the folder with the appropiated user privileges 
 
-#### Certificates
-Certificate dates are expressed as UTC time (Coordinated Universal Time) 
-to reduce confusion with the local time zone use. Comparison are made to the millisecond.
-
+### Service URLs
 **genTime** is the time at which the time-stamp token has been created by
-the TSA.  It is expressed as UTC time (Coordinated Universal Time) to
-reduce confusion with the local time zone use. 
+the TSA.  It is expressed as UTC time (Coordinated Universal Time).
+
+#### RFC 3161 timestamps
+
+    POST - http://$SERVER_DOMAIN/timestamp-server/api/timestamp
+
+
+#### RFC 3161 timestamps
+
+    POST - http://$SERVER_DOMAIN/timestamp-server/api/timestamp/discrete
+
+A discrete timestamp is a timestamp that has a discrete value, f.e:
+all request between 01:00 and 02:00 will have as TimeStamp time 02:00, all
+between 04:00 and 05:00 will have 05:00 ...
+
+Discrete timestamps are created to make it more difficult to trace 
+electors analyzing the TimeStamp of the signed votes (the results of the 
+elections are freely available online for anyone that could want to validate them).
