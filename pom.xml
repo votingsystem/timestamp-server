@@ -81,10 +81,8 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.votingsystem>0.9.1</version.votingsystem>
-        <version.wildfly.maven.plugin>1.2.0.Alpha4</version.wildfly.maven.plugin>
-        <version.compiler.plugin>3.5.1</version.compiler.plugin>
-        <version.war.plugin>3.0.0</version.war.plugin>
-        <version.jackson>2.8.1</version.jackson>
-        <version.org.wildfly>10.1.0.Final</version.org.wildfly>
+        <version.wildfly.maven.plugin>1.2.1.Final</version.wildfly.maven.plugin>
+        <version.compiler.plugin>3.7.0</version.compiler.plugin>
+        <version.war.plugin>3.2.0</version.war.plugin>
     </properties>
 </project>
