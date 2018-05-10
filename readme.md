@@ -3,13 +3,13 @@
 The application expects the content of the distribution directory 'docs/app-config-files' with values appropriate to the 
 installation in the directory:
 
-    /var/local/wildlfy/timestamp-server
+    /var/local/wildfly/timestamp-server
 
 It can be changed setting system environment var 'timestamp_server_dir' with the desired value
 
 ### Configuration
  - The application has been developed and tested on Wildfly 10.
- - The application default working dir is in **/var/local/wildlfy/timestamp-server**
+ - The application default working dir is in **/var/local/wildfly/timestamp-server**
 you can modify that location changing the system property **timestamp_server_dir**
  - Inside the config dir there must the content of **docs/config** completed with the values of your installation   
 

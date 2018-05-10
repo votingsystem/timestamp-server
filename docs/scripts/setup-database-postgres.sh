@@ -25,4 +25,4 @@ rm create.sql
 
 sudo -u postgres PGPASSWORD=$DB_PASSWORD psql -U $DB_USERNAME -h 127.0.0.1 -d $DB_NAME -a -f timestamp-server-postgres.sql
 
-# register datasource with wildlfy
+# register datasource with wildfly
