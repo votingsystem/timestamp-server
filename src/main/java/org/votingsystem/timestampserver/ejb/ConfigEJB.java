@@ -37,7 +37,7 @@ public class ConfigEJB {
 
     private static final Logger log = Logger.getLogger(ConfigEJB.class.getName());
 
-    public static final String DEFAULT_APP_HOME = "/var/local/timestamp-server";
+    public static final String DEFAULT_APP_HOME = "/var/local/wildlfy/timestamp-server";
     public static final Integer DEFAULT_METADATA_LIVE_IN_HOURS = 1;
 
     private String entityId;

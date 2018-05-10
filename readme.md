@@ -3,13 +3,13 @@
 The application expects the content of the distribution directory 'docs/app-config-files' with values appropriate to the 
 installation in the directory:
 
-    /var/local/timestamp-server
+    /var/local/wildlfy/timestamp-server
 
 It can be changed setting system environment var 'timestamp_server_dir' with the desired value
 
 ### Configuration
  - The application has been developed and tested on Wildfly 10.
- - The application default working dir is in **/var/local/timestamp-server**
+ - The application default working dir is in **/var/local/wildlfy/timestamp-server**
 you can modify that location changing the system property **timestamp_server_dir**
  - Inside the config dir there must the content of **docs/config** completed with the values of your installation   
 
@@ -24,16 +24,16 @@ To enable application filters change what follows to the standalone / domain  se
 2. Make sure you have  Wildfly server started.
 3. Make sure theres configured a _datasource_ with the name:
 
-    _java:jboss/datasources/timestamp-server_
+        java:jboss/datasources/timestamp-server
         
 4. Use this command to build and deploy the archive:
 
-            mvn clean package wildfly:deploy
+        mvn clean package wildfly:deploy
       
 #### Logging
 Application will store log files in directory:
     
-    /var/log/timestamp-server
+    /var/log/wildfly/timestamp-server
     
 You must setup the folder with the appropiated user privileges 
 
