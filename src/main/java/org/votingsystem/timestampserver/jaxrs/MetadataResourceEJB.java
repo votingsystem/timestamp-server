@@ -46,7 +46,7 @@ public class MetadataResourceEJB {
         MetadataDto metadata = config.getMetadata();
         byte[] metadataBytes = new XmlMapper().writerWithDefaultPrettyPrinter().writeValueAsBytes(metadata);
         AbstractSignatureTokenConnection signingToken = config.getSigningToken();
-        return XAdESSignature.sign(metadataBytes, signingToken,
+        return new XAdESSignature().sign(metadataBytes, signingToken,
                 new TSPHttpSource(config.getTimestampServiceURL()));
     }
 
